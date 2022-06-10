@@ -1,0 +1,17 @@
+encryption: gpg
+gpg:
+  recipient: {{ .email }}
+  symmetric: true
+pinentry:
+  command: pinentry-mac
+git:
+  autoPush: true
+  autoCommit: true  
+edit:
+  command: nvim
+merge:
+  command: nvim
+data:
+  name: {{ .name }}
+  user: {{ .chezmoi.username }}
+  email: {{ .email }}
