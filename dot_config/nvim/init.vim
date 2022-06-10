@@ -29,6 +29,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim'
+Plug 'j-hui/fidget.nvim'
 
 " Chezmoi editor (changes . for dot_)
 Plug 'alker0/chezmoi.vim'
@@ -63,6 +64,9 @@ Plug 'chrisbra/csv.vim'
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
+" Glow
+Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
+
 " virtualenv
 Plug 'jmcantrell/vim-virtualenv'
 
@@ -81,6 +85,21 @@ Plug 'scrooloose/nerdtree'
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
+" Hop
+Plug 'phaazon/hop.nvim'
+
+" Telescope
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim'
+
+" Spellsitter
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'lewis6991/spellsitter.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 " --------------------------------END PLUGINS
 
@@ -91,6 +110,7 @@ colorscheme tender
 lua << EOF
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.pyright.setup{}
+require'fidget'.setup{}
 EOF
 
 " Snippets Configuration
@@ -141,6 +161,20 @@ let g:gitgutter_signs = 1
 let g:gitgutter_highlight_linenrs = 1
 let g:gitgutter_highlight_lines = 1
 
+" Glow Configuration
+let g:glow_binary_path = '/usr/local/bin/'
+
 " Nerdtree Configuration
 let NERDTreeQuitOnOpen=1
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
+
+" Hop Configuration
+lua << EOF
+require'hop'.setup()
+EOF
+
+" Spellsitter Configuration
+lua << EOF
+require('spellsitter').setup()
+EOF
+
