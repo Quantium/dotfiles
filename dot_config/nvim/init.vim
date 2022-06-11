@@ -100,9 +100,6 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lewis6991/spellsitter.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Magma
-Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
-
 call plug#end()
 " --------------------------------END PLUGINS
 
@@ -180,4 +177,3 @@ EOF
 lua << EOF
 require('spellsitter').setup()
 EOF
-
