@@ -21,13 +21,13 @@ endif
 " --------------------------------PLUGINS
 call plug#begin('~/.vim/plugged')
 
-" GRUVBOX THEME
-"Plug 'sainnhe/gruvbox-material'
+" THEME
+" Plug 'sainnhe/gruvbox-material'
 Plug 'jacoborus/tender.vim'
 
 " LSP (Javscript server)
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'ms-jpq/coq_nvim'
 Plug 'neoclide/coc.nvim'
 Plug 'j-hui/fidget.nvim'
 
@@ -99,6 +99,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lewis6991/spellsitter.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Magma
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 " --------------------------------END PLUGINS
