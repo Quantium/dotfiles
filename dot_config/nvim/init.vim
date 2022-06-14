@@ -22,11 +22,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " THEME
-" Plug 'sainnhe/gruvbox-material'
-Plug 'jacoborus/tender.vim'
+Plug 'sainnhe/gruvbox-material'
+" Plug 'jacoborus/tender.vim'
 
-" LSP (Javscript server)
+" LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
 Plug 'ms-jpq/coq_nvim'
 Plug 'neoclide/coc.nvim'
 Plug 'j-hui/fidget.nvim'
@@ -45,13 +47,17 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-snippets'
 
+" Python
+Plug 'jupyter-vim/jupyter-vim'
+Plug 'untitled-ai/jupyter_ascending.vim'
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
 " Comments
 Plug 'tpope/vim-commentary'
 
-" Identation
+" Identation indicators
 Plug 'Yggdroot/indentLine'
 
 " Airline
@@ -70,14 +76,11 @@ Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 " virtualenv
 Plug 'jmcantrell/vim-virtualenv'
 
-" tmux line
+" tmux line 
 Plug 'edkolev/tmuxline.vim'
 
-" vim-fugitive
+" vim-fugitive (git)
 Plug 'tpope/vim-fugitive'
-
-" Promtpline
-Plug 'edkolev/promptline.vim'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -85,7 +88,7 @@ Plug 'scrooloose/nerdtree'
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
-" Hop
+" Hop (navigate between text)
 Plug 'phaazon/hop.nvim'
 
 " Telescope
@@ -103,11 +106,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 " --------------------------------END PLUGINS
 
-" TENDER Material config
-colorscheme tender
+" Mapping
 
 " LSP Configuration
 lua << EOF
+require("nvim-lsp-installer").setup {}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.pyright.setup{}
 require'fidget'.setup{}
@@ -172,6 +175,13 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 lua << EOF
 require'hop'.setup()
 EOF
+
+" Telescope Configuration
+nnoremap <silent> <F3> <CMD>Telescope find_files prompt_prefix=🔍<CR>
+nnoremap <silent> <F4> <CMD>Telescope git_files<CR>
+nnoremap <silent> <F5> <CMD>Telescope buffers<CR>
+nnoremap <silent> <F6> <CMD>Telescope planets<CR>
+
 
 " Spellsitter Configuration
 lua << EOF
