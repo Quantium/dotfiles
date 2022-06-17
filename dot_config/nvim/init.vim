@@ -51,6 +51,9 @@ Plug 'mlaursen/vim-snippets'
 Plug 'jupyter-vim/jupyter-vim'
 Plug 'untitled-ai/jupyter_ascending.vim'
 
+" Arduino
+Plug 'stevearc/vim-arduino'
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
