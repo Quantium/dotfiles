@@ -1,4 +1,7 @@
 default-cache-ttl 600
 max-cache-ttl 7200
-pinentry-program /usr/local/bin/pinentry-mac
-
+{{- if eq .chezmoi.os "linux" }}
+pinentry-program /usr/local/bin/pinentry
+{{- else if eq .chezmoi.os "darwin" }}
+pinentry-program /usr/local/bin/pinentry
+{{- end }}
