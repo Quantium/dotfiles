@@ -6,7 +6,7 @@ pinentry:
 {{- if eq .chezmoi.os "darwin" }}
   command: pinentry-mac
 {{- else if eq .chezmoi.os "linux" }}
-  command: pinentry
+  command: pinentry-tty
 {{-  end}}
 git:
   autoPush: true
