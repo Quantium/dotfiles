@@ -3,7 +3,11 @@ gpg:
   recipient: andres@quantium.com.mx
   symmetric: true
 pinentry:
+{{- if eq .chezmoi.os "darwin" }}
   command: pinentry-mac
+{{- else if eq .chezmoi.os "linux" }}
+  command: pinentry-mac
+{{-  end}}
 git:
   autoPush: true
   autoCommit: true  
