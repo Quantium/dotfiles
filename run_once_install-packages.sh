@@ -30,7 +30,6 @@ sudo update-alternatives --config editor
 #!/bin/sh
 brew install ripgrep
 {{ end -}}
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts.git $HOME/.nerdfonts
 cd nerdfonts
 git sparse-checkout add patched-fonts/Hermit
@@ -42,3 +41,6 @@ git sparse-checkout add patched-fonts/UbuntuMono
 ./install.sh
 cd ..
 rm -rf nerdfonts
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+

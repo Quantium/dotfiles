@@ -10,6 +10,11 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 TMUX_MOTD=true
+# -------------------------------<pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null 2>&1 || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# -------------------------------pyenv>
 plugins=(
     aliases
     git 
@@ -27,7 +32,6 @@ plugins=(
     node
     npm
     nvm
-    xcode
     pip
     python
     pyenv
@@ -36,12 +40,14 @@ plugins=(
     docker-compose
     gpg-agent
     gcloud
+{{- if eq .chezmoi.os "darwin" }}
     macos 
+    xcode
+{{- end }}
     oh-my-matrix
     emoji
 )
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 source $(dirname $(gem which colorls))/tab_complete.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
@@ -54,8 +60,3 @@ alias ls='colorls --group-directories-first'
 alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
 alias weather='curl wttr.in/Mexico_City'
-# -------------------------------<pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null 2>&1 || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# -------------------------------pyenv>
