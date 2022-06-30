@@ -1,6 +1,5 @@
 {{ if eq .chezmoi.os "linux"}}
 {{ if eq .chezmoi.osRelease.name "Ubuntu" -}}
-#!/bin/sh
 sudo apt update
 sudo apt upgrade
 sudo apt-get update -y
@@ -30,7 +29,6 @@ sudo update-alternatives --config editor
 pip3 install pyenv
 pip3 install pyenv
 {{ else if eq .chezmoi.os "darwin" -}}
-#!/bin/sh
 brew install ripgrep
 {{ end -}}
 git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts.git $HOME/.nerdfonts
