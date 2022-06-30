@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux"}}
 {{ if eq .chezmoi.osRelease.name "Ubuntu" -}}
 #!/bin/sh
 sudo apt update
@@ -14,7 +15,6 @@ wget curl llvm libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
 libxml2-dev libxmlsec1-dev libxmlsec1-openssl-dev libxmlsec1-openssl-dev
 sudo apt-get install -y python-openssl
 sudo apt-get install -y python3-openssl
-pip3 install pyenv
 sudo snap install node --classic
 sudo npm install -g yarn
 sudo npm install -g n
@@ -26,6 +26,9 @@ sudo update-alternatives --install /usr/bin/vim vim /snap/bin/nvim 60
 sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
+{{ end -}}
+pip3 install pyenv
+pip3 install pyenv
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install ripgrep
